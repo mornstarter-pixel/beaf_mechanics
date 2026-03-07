@@ -1,0 +1,6 @@
+numpy==2.3.2
+pandas==2.3.2
+matplotlib==3.10.0
+scikit-learn==1.6.1
+xlrd>=2.0.1
+tensorflow-cpu>=2.19,<2.21

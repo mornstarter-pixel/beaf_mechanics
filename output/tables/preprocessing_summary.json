@@ -1,0 +1,9 @@
+{
+  "n_raw_rows": 3390,
+  "n_aggregated_rows": 678,
+  "n_flagged_outliers": 300,
+  "colors": [
+    "green",
+    "red"
+  ]
+}
