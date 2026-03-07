@@ -1,144 +1,144 @@
 color,cut,variant,train_variant,loading,split,time_days,time_label,mae_pa,rmse_pa,r2,n_points
-green,Sirloin tender steak,compression_only,compression_only,compression,test,0.0,Day 0,1775.6760484212236,1852.1710990258828,-18.651748874198763,9
-green,Sirloin tender steak,compression_only,compression_only,compression,test,1.0,Day 1,1558.2118835449216,1601.5226796162758,-24.963825306057018,9
-green,Sirloin tender steak,compression_only,compression_only,compression,test,2.0,Day 2,1804.762668355306,1832.8449676697132,-37.071112638485786,6
-green,Sirloin tender steak,compression_only,compression_only,overall,test,-1.0,Overall,387.1482889340656,604.0479582740555,-0.9900720915296093,257
-green,Sirloin tender steak,compression_only,compression_only,shear,test,0.0,Day 0,310.48605361995885,321.39719273460366,-8.577778908093219,99
-green,Sirloin tender steak,compression_only,compression_only,shear,test,1.0,Day 1,180.3619508048289,189.84375059066784,-6.286204498730741,99
-green,Sirloin tender steak,compression_only,compression_only,shear,test,2.0,Day 2,222.0803938182696,266.0879796703074,-1.7488243878791363,23
-green,Sirloin tender steak,compression_only,compression_only,tension,test,0.0,Day 0,492.7201953857422,706.6636724727512,-0.4644108872318815,4
-green,Sirloin tender steak,compression_only,compression_only,tension,test,1.0,Day 1,319.1756375305176,458.168705103424,-0.584334592326204,4
-green,Sirloin tender steak,compression_only,compression_only,tension,test,2.0,Day 2,428.5395076721191,591.1824110143955,-0.8003238662665264,4
-green,Sirloin tender steak,compression_only,compression_only,compression,train,0.0,Day 0,1625.6966210123696,1734.8881777004644,-10.265282128403733,36
-green,Sirloin tender steak,compression_only,compression_only,compression,train,1.0,Day 1,1382.7007056640625,1463.0584903665856,-10.449863354697271,35
-green,Sirloin tender steak,compression_only,compression_only,compression,train,2.0,Day 2,1138.3250893656416,1214.3456154430164,-8.847796983570694,36
-green,Sirloin tender steak,compression_only,compression_only,overall,train,-1.0,Overall,286.1099777648688,485.06104975344766,-0.8354596458195633,1247
-green,Sirloin tender steak,compression_only,compression_only,shear,train,0.0,Day 0,258.2971309541143,284.1291936688807,-3.2765480744734727,400
-green,Sirloin tender steak,compression_only,compression_only,shear,train,1.0,Day 1,164.1312583851993,181.11105094686755,-3.4100867093422425,379
-green,Sirloin tender steak,compression_only,compression_only,shear,train,2.0,Day 2,92.68645324696446,98.039083157218,-5.6431936465252726,315
-green,Sirloin tender steak,compression_only,compression_only,tension,train,0.0,Day 0,391.41979366149894,580.6988039551258,-0.6052975374678438,16
-green,Sirloin tender steak,compression_only,compression_only,tension,train,1.0,Day 1,286.0429664860026,389.0767716662905,-0.3070856019758281,15
-green,Sirloin tender steak,compression_only,compression_only,tension,train,2.0,Day 2,240.3761815091145,328.8704926468159,-0.41808066614956285,15
-green,Sirloin tender steak,shear_only,shear_only,compression,test,0.0,Day 0,1641.5979666544595,1699.816129525354,-15.55171086032647,9
-green,Sirloin tender steak,shear_only,shear_only,compression,test,1.0,Day 1,1487.3727798461912,1522.710195503768,-22.471292366633566,9
-green,Sirloin tender steak,shear_only,shear_only,compression,test,2.0,Day 2,1771.559729639689,1797.094321177115,-35.600401547095835,6
-green,Sirloin tender steak,shear_only,shear_only,overall,test,-1.0,Overall,398.2524575880624,589.2457140629956,-0.8937333718005396,257
-green,Sirloin tender steak,shear_only,shear_only,shear,test,0.0,Day 0,341.29450898874495,355.4462142492327,-10.71462620731807,99
-green,Sirloin tender steak,shear_only,shear_only,shear,test,1.0,Day 1,196.48875359999099,207.89539808742867,-7.737727525183201,99
-green,Sirloin tender steak,shear_only,shear_only,shear,test,2.0,Day 2,234.17281694291339,282.2142362810219,-2.0921056122494273,23
-green,Sirloin tender steak,shear_only,shear_only,tension,test,0.0,Day 0,474.4830547973633,717.8262775080569,-0.5110405596929644,4
-green,Sirloin tender steak,shear_only,shear_only,tension,test,1.0,Day 1,325.6114285461426,465.99562638932855,-0.6389275005502113,4
-green,Sirloin tender steak,shear_only,shear_only,tension,test,2.0,Day 2,433.4726961105346,599.0401063145351,-0.8484998926933951,4
-green,Sirloin tender steak,shear_only,shear_only,compression,train,0.0,Day 0,1492.283233078003,1585.367740179827,-8.407173003011678,36
-green,Sirloin tender steak,shear_only,shear_only,compression,train,1.0,Day 1,1313.3674529479981,1385.7335504408031,-9.27155959129257,35
-green,Sirloin tender steak,shear_only,shear_only,compression,train,2.0,Day 2,1083.8874041408967,1153.4518946763003,-7.884918372412201,36
-green,Sirloin tender steak,shear_only,shear_only,overall,train,-1.0,Overall,296.2839229214957,469.0424416123974,-0.7162332821287287,1247
-green,Sirloin tender steak,shear_only,shear_only,shear,train,0.0,Day 0,288.72511187639793,317.58094413590266,-4.342819615531838,400
-green,Sirloin tender steak,shear_only,shear_only,shear,train,1.0,Day 1,179.73558501435045,198.39870200175523,-4.292183325757762,379
-green,Sirloin tender steak,shear_only,shear_only,shear,train,2.0,Day 2,104.56614205005329,110.78469869352976,-7.482775854888466,315
-green,Sirloin tender steak,shear_only,shear_only,tension,train,0.0,Day 0,402.7641158660888,594.8643294234515,-0.6845718206020794,16
-green,Sirloin tender steak,shear_only,shear_only,tension,train,1.0,Day 1,280.7093747998047,391.64612277525646,-0.3244058375397141,15
-green,Sirloin tender steak,shear_only,shear_only,tension,train,2.0,Day 2,236.86769316170242,333.03807387977434,-0.45424939066660097,15
-green,Sirloin tender steak,tension_only,tension_only,compression,test,0.0,Day 0,1699.7721889648435,1765.7657119270698,-16.860974806011804,9
-green,Sirloin tender steak,tension_only,tension_only,compression,test,1.0,Day 1,1518.2021425035264,1556.9393956379101,-23.53838113075996,9
-green,Sirloin tender steak,tension_only,tension_only,compression,test,2.0,Day 2,1786.0166763305663,1812.6496321961522,-36.23675616940351,6
-green,Sirloin tender steak,tension_only,tension_only,overall,test,-1.0,Overall,393.4043190002436,595.3250868756165,-0.9330110464217609,257
-green,Sirloin tender steak,tension_only,tension_only,shear,test,0.0,Day 0,327.9204410064061,340.6153059924513,-9.757440900073442,99
-green,Sirloin tender steak,tension_only,tension_only,shear,test,1.0,Day 1,189.4667519954508,200.01579394500214,-7.087928931835647,99
-green,Sirloin tender steak,tension_only,tension_only,shear,test,2.0,Day 2,228.9075428615342,275.18567510521734,-1.9400054043300687,23
-green,Sirloin tender steak,tension_only,tension_only,tension,test,0.0,Day 0,481.0772205322266,712.3918996047088,-0.4882481865707109,4
-green,Sirloin tender steak,tension_only,tension_only,tension,test,1.0,Day 1,322.80803041381836,462.33977641841625,-0.6133127966990537,4
-green,Sirloin tender steak,tension_only,tension_only,tension,test,2.0,Day 2,431.32358627014156,595.5104503563163,-0.8267806568555032,4
-green,Sirloin tender steak,tension_only,tension_only,compression,train,0.0,Day 0,1550.1692518310547,1650.0314891386022,-9.190220048085601,36
-green,Sirloin tender steak,tension_only,tension_only,compression,train,1.0,Day 1,1343.5418187273299,1419.3093119814969,-9.775341189560143,35
-green,Sirloin tender steak,tension_only,tension_only,compression,train,2.0,Day 2,1107.5813940005837,1179.9049349506163,-8.297121440893275,36
-green,Sirloin tender steak,tension_only,tension_only,overall,train,-1.0,Overall,291.8494125848187,475.6367665654297,-0.7648299774395921,1247
-green,Sirloin tender steak,tension_only,tension_only,shear,train,0.0,Day 0,275.5162118135742,302.9935532217295,-3.863270398391739,400
-green,Sirloin tender steak,tension_only,tension_only,shear,train,1.0,Day 1,172.94103387043134,190.84557091571892,-3.896901833449763,379
-green,Sirloin tender steak,tension_only,tension_only,shear,train,2.0,Day 2,99.39287590001369,105.1882050068132,-6.647377308396419,315
-green,Sirloin tender steak,tension_only,tension_only,tension,train,0.0,Day 0,397.8374934753417,588.0509553959557,-0.6462037862231853,16
-green,Sirloin tender steak,tension_only,tension_only,tension,train,1.0,Day 1,282.4503619417318,390.20686062898886,-0.3146895932757334,15
-green,Sirloin tender steak,tension_only,tension_only,tension,train,2.0,Day 2,238.07885282096348,331.02791549835507,-0.43674719102609516,15
-green,Sirloin tender steak,weighted_all,weighted_all,compression,test,0.0,Day 0,1775.6789950629338,1852.174424476861,-18.651819441098567,9
-green,Sirloin tender steak,weighted_all,weighted_all,compression,test,1.0,Day 1,1558.2135348849824,1601.5245073148906,-24.963884567252915,9
-green,Sirloin tender steak,weighted_all,weighted_all,compression,test,2.0,Day 2,1804.7634796142577,1832.8458379668184,-37.07114879341168,6
-green,Sirloin tender steak,weighted_all,weighted_all,overall,test,-1.0,Overall,387.14799654040763,604.0482969545893,-0.9900743231367459,257
-green,Sirloin tender steak,weighted_all,weighted_all,shear,test,0.0,Day 0,310.48530284466983,321.39636886656797,-8.577729804890328,99
-green,Sirloin tender steak,weighted_all,weighted_all,shear,test,1.0,Day 1,180.3615366199792,189.84328955996293,-6.28616911005024,99
-green,Sirloin tender steak,weighted_all,weighted_all,shear,test,2.0,Day 2,222.0800883917601,266.0875734496278,-1.7488159949524071,23
-green,Sirloin tender steak,weighted_all,weighted_all,tension,test,0.0,Day 0,492.7207218139649,706.6634456469142,-0.464409947134959,4
-green,Sirloin tender steak,weighted_all,weighted_all,tension,test,1.0,Day 1,319.17547349853515,458.1685313159448,-0.5843333904219288,4
-green,Sirloin tender steak,weighted_all,weighted_all,tension,test,2.0,Day 2,428.5393856018066,591.1822220303156,-0.8003227152427865,4
-green,Sirloin tender steak,weighted_all,weighted_all,compression,train,0.0,Day 0,1625.6995557861328,1734.8914430508296,-10.26532453474231,36
-green,Sirloin tender steak,weighted_all,weighted_all,compression,train,1.0,Day 1,1382.7023278913225,1463.0602865343872,-10.44989146825343,35
-green,Sirloin tender steak,weighted_all,weighted_all,compression,train,2.0,Day 2,1138.3263473680288,1214.3470109098369,-8.847819616800752,36
-green,Sirloin tender steak,weighted_all,weighted_all,overall,train,-1.0,Overall,286.10970899013284,485.0614166060817,-0.8354624221441547,1247
-green,Sirloin tender steak,weighted_all,weighted_all,shear,train,0.0,Day 0,258.29638938143626,284.1283864055726,-3.2765237735883934,400
-green,Sirloin tender steak,weighted_all,weighted_all,shear,train,1.0,Day 1,164.13085763466762,181.11061045837954,-3.410065257420295,379
-green,Sirloin tender steak,weighted_all,weighted_all,shear,train,2.0,Day 2,92.68614998938841,98.03876301394611,-5.643150260352966,315
-green,Sirloin tender steak,weighted_all,weighted_all,tension,train,0.0,Day 0,391.4195190032958,580.6985316229482,-0.6052960317851437,16
-green,Sirloin tender steak,weighted_all,weighted_all,tension,train,1.0,Day 1,286.0431933333333,389.07673932300224,-0.3070853846642454,15
-green,Sirloin tender steak,weighted_all,weighted_all,tension,train,2.0,Day 2,240.3763249417317,328.8704043650798,-0.4180799048127506,15
-red,New York strip steak,compression_only,compression_only,compression,test,0.0,Day 0,1069.6179031846789,1138.761369671367,-18.24486427681229,9
-red,New York strip steak,compression_only,compression_only,compression,test,1.0,Day 1,1205.5138417426215,1242.60572605571,-27.68838814191655,9
-red,New York strip steak,compression_only,compression_only,compression,test,2.0,Day 2,1791.6515338948568,1906.355664175681,-9.140653315149574,9
-red,New York strip steak,compression_only,compression_only,overall,test,-1.0,Overall,258.6153968564043,474.97500427777504,-0.780867045983284,302
-red,New York strip steak,compression_only,compression_only,shear,test,0.0,Day 0,50.56149580660651,54.60837385901457,-1.7992696645314776,100
-red,New York strip steak,compression_only,compression_only,shear,test,1.0,Day 1,156.34087860174327,169.32680652557463,-3.9897142808722057,64
-red,New York strip steak,compression_only,compression_only,shear,test,2.0,Day 2,230.2759828057516,242.3927337695662,-7.613640492401705,100
-red,New York strip steak,compression_only,compression_only,tension,test,0.0,Day 0,253.82914163818361,316.2723558016263,-0.5607537118717036,4
-red,New York strip steak,compression_only,compression_only,tension,test,1.0,Day 1,302.30998110351567,416.4721808247939,-1.3243218755130837,3
-red,New York strip steak,compression_only,compression_only,tension,test,2.0,Day 2,372.2474349060059,481.44627871235156,-0.36049204846493166,4
-red,New York strip steak,compression_only,compression_only,compression,train,0.0,Day 0,1356.108489906529,1464.3532465114974,-9.924426511258815,35
-red,New York strip steak,compression_only,compression_only,compression,train,1.0,Day 1,1728.737866603042,1912.128811958276,-5.184419259095741,33
-red,New York strip steak,compression_only,compression_only,compression,train,2.0,Day 2,1662.0411474609375,1814.3683101448555,-5.8563520878316915,32
-red,New York strip steak,compression_only,compression_only,overall,train,-1.0,Overall,389.50716820301164,575.0213199168729,-1.2113325023684909,1284
-red,New York strip steak,compression_only,compression_only,shear,train,0.0,Day 0,240.76912824051635,265.97576044737724,-3.177656000124064,400
-red,New York strip steak,compression_only,compression_only,shear,train,1.0,Day 1,337.6126949872538,356.7281676473328,-6.802943315527432,393
-red,New York strip steak,compression_only,compression_only,shear,train,2.0,Day 2,280.2347672478046,308.6154451963407,-4.306631630385942,351
-red,New York strip steak,compression_only,compression_only,tension,train,0.0,Day 0,319.5771989990234,426.71109946107714,-0.5119018944818192,14
-red,New York strip steak,compression_only,compression_only,tension,train,1.0,Day 1,455.9082078639573,679.3060487121365,-0.30672779769682057,13
-red,New York strip steak,compression_only,compression_only,tension,train,2.0,Day 2,359.7699454533504,497.5142457923135,-0.29378983972676354,13
-red,New York strip steak,shear_only,shear_only,compression,test,0.0,Day 0,904.5547368842231,948.5335971076581,-12.352261732922386,9
-red,New York strip steak,shear_only,shear_only,compression,test,1.0,Day 1,1117.817914228651,1144.5033139091597,-23.33736502811813,9
-red,New York strip steak,shear_only,shear_only,compression,test,2.0,Day 2,1724.5470692579484,1828.9413217171254,-8.333781316904911,9
-red,New York strip steak,shear_only,shear_only,overall,test,-1.0,Overall,268.95019988673715,451.65125832208895,-0.6102615984936037,302
-red,New York strip steak,shear_only,shear_only,shear,test,0.0,Day 0,87.71331565583499,92.18603405223695,-6.977310794689129,100
-red,New York strip steak,shear_only,shear_only,shear,test,1.0,Day 1,168.76659649712815,183.40772782231565,-4.854091464772649,64
-red,New York strip steak,shear_only,shear_only,shear,test,2.0,Day 2,245.45036988405545,258.5115610804955,-8.797324407193274,100
-red,New York strip steak,shear_only,shear_only,tension,test,0.0,Day 0,235.40185779724123,327.3248633443555,-0.6717444880140451,4
-red,New York strip steak,shear_only,shear_only,tension,test,1.0,Day 1,331.3092130777995,431.08237710012133,-1.4902606925013164,3
-red,New York strip steak,shear_only,shear_only,tension,test,2.0,Day 2,361.9292705574036,485.1275802669009,-0.3813771590458521,4
-red,New York strip steak,shear_only,shear_only,compression,train,0.0,Day 0,1187.0595427629742,1274.465991200206,-7.274913079141593,35
-red,New York strip steak,shear_only,shear_only,compression,train,1.0,Day 1,1637.5423618654193,1813.0417346157221,-4.560069695943718,33
-red,New York strip steak,shear_only,shear_only,compression,train,2.0,Day 2,1589.9871469640732,1737.1037845268181,-5.284832977566583,32
-red,New York strip steak,shear_only,shear_only,overall,train,-1.0,Overall,402.14314572686715,561.1150056320503,-1.1056681146481568,1284
-red,New York strip steak,shear_only,shear_only,shear,train,0.0,Day 0,277.9275838142093,305.32473264870595,-4.5051927412769635,400
-red,New York strip steak,shear_only,shear_only,shear,train,1.0,Day 1,357.7012570842429,378.9736772477163,-7.806467515612514,393
-red,New York strip steak,shear_only,shear_only,shear,train,2.0,Day 2,294.44965900651755,323.03414755551535,-4.814073179407002,351
-red,New York strip steak,shear_only,shear_only,tension,train,0.0,Day 0,311.2682569013323,438.6954990397267,-0.5980195533089521,14
-red,New York strip steak,shear_only,shear_only,tension,train,1.0,Day 1,449.440945635329,683.244326394286,-0.3219232302934465,13
-red,New York strip steak,shear_only,shear_only,tension,train,2.0,Day 2,352.7909777867244,500.7457640967603,-0.310651603028983,13
-red,New York strip steak,tension_only,tension_only,compression,test,0.0,Day 0,962.0945368923611,1014.5889966268081,-14.276705145753203,9
-red,New York strip steak,tension_only,tension_only,compression,test,1.0,Day 1,1148.4795382893878,1178.6827398722062,-24.81269173234964,9
-red,New York strip steak,tension_only,tension_only,compression,test,2.0,Day 2,1748.0116269056534,1855.9864944904646,-8.611865842314101,9
-red,New York strip steak,tension_only,tension_only,overall,test,-1.0,Overall,265.278989918092,459.29989952183587,-0.665262444231902,302
-red,New York strip steak,tension_only,tension_only,shear,test,0.0,Day 0,74.75441465822423,78.33841506383209,-4.760707317647913,100
-red,New York strip steak,tension_only,tension_only,shear,test,1.0,Day 1,164.41876887539252,178.47168804917976,-4.543230082686475,64
-red,New York strip steak,tension_only,tension_only,shear,test,2.0,Day 2,240.1410098084252,252.84505894157758,-8.37252247076168,100
-red,New York strip steak,tension_only,tension_only,tension,test,0.0,Day 0,237.24938394775393,321.6232223950887,-0.6140118064468842,4
-red,New York strip steak,tension_only,tension_only,tension,test,1.0,Day 1,321.16249473470054,425.76946917022894,-1.4292561320616972,3
-red,New York strip steak,tension_only,tension_only,tension,test,2.0,Day 2,365.53874044799807,483.6345712698621,-0.3728877017647736,4
-red,New York strip steak,tension_only,tension_only,compression,train,0.0,Day 0,1245.9885715192522,1340.3621223583225,-8.152742236150845,35
-red,New York strip steak,tension_only,tension_only,compression,train,1.0,Day 1,1669.4268839277786,1847.5785449270177,-4.773915897053182,33
-red,New York strip steak,tension_only,tension_only,compression,train,2.0,Day 2,1615.1815936470032,1764.0497315635973,-5.4813258553747914,32
-red,New York strip steak,tension_only,tension_only,overall,train,-1.0,Overall,397.6681849176757,565.5103168759119,-1.1387854432495406,1284
-red,New York strip steak,tension_only,tension_only,shear,train,0.0,Day 0,264.96634658626465,291.45641656306225,-4.016442049017903,400
-red,New York strip steak,tension_only,tension_only,shear,train,1.0,Day 1,350.6731764611174,371.1742808867307,-7.44771779720168,393
-red,New York strip steak,tension_only,tension_only,shear,train,2.0,Day 2,289.4759439072635,317.96084545250176,-4.632885364229089,351
-red,New York strip steak,tension_only,tension_only,tension,train,0.0,Day 0,309.65344813581186,433.27896251763076,-0.5588019388204413,14
-red,New York strip steak,tension_only,tension_only,tension,train,1.0,Day 1,450.7024783454778,681.6217695812023,-0.31565212453962044,13
-red,New York strip steak,tension_only,tension_only,tension,train,2.0,Day 2,355.2321136333759,499.41255808331914,-0.303681828780362,13
+green,Sirloin tender steak,compression_only,compression_only,compression,test,0.0,Day 0,1612.1432399054631,1666.4996450347753,-14.909240612943066,9
+green,Sirloin tender steak,compression_only,compression_only,compression,test,1.0,Day 1,1470.2642845577661,1503.7581025757963,-21.890667277183493,9
+green,Sirloin tender steak,compression_only,compression_only,compression,test,2.0,Day 2,1763.277839287122,1788.1900515212176,-35.23860366663891,6
+green,Sirloin tender steak,compression_only,compression_only,overall,test,-1.0,Overall,400.8775831976507,586.2236374897115,-0.8743583258039245,257
+green,Sirloin tender steak,compression_only,compression_only,shear,test,0.0,Day 0,348.0374289581832,362.9503088497877,-11.214480207068009,99
+green,Sirloin tender steak,compression_only,compression_only,shear,test,1.0,Day 1,200.3755802241629,212.26885941300552,-8.109222669106625,99
+green,Sirloin tender steak,compression_only,compression_only,shear,test,2.0,Day 2,237.18948640405256,286.2458042215507,-2.1810811062275914,23
+green,Sirloin tender steak,compression_only,compression_only,tension,test,0.0,Day 0,477.1281449005127,720.8952513634899,-0.5239886985433877,4
+green,Sirloin tender steak,compression_only,compression_only,tension,test,1.0,Day 1,327.15995030326843,468.17754812423675,-0.6543112650107707,4
+green,Sirloin tender steak,compression_only,compression_only,tension,test,2.0,Day 2,434.701412185955,601.1334012597375,-0.861441317426217,4
+green,Sirloin tender steak,compression_only,compression_only,compression,train,0.0,Day 0,1462.9755357818603,1552.7413583395435,-8.023963694238706,36
+green,Sirloin tender steak,compression_only,compression_only,compression,train,1.0,Day 1,1296.623492908042,1367.147814363775,-8.997878881279401,35
+green,Sirloin tender steak,compression_only,compression_only,compression,train,2.0,Day 2,1070.2919102546907,1138.304892029714,-7.653099015820505,36
+green,Sirloin tender steak,compression_only,compression_only,overall,train,-1.0,Overall,298.6345320373959,465.7283217463718,-0.6920661359709614,1247
+green,Sirloin tender steak,compression_only,compression_only,shear,train,0.0,Day 0,295.38477112628874,324.9702710903559,-4.59434062837804,400
+green,Sirloin tender steak,compression_only,compression_only,shear,train,1.0,Day 1,183.4963722300056,202.59506219607468,-4.518422394713427,379
+green,Sirloin tender steak,compression_only,compression_only,shear,train,2.0,Day 2,107.52864295985123,114.0172547680326,-7.985031212212116,315
+green,Sirloin tender steak,compression_only,compression_only,tension,train,0.0,Day 0,406.02187889566414,598.6680791243158,-0.7061840626962146,16
+green,Sirloin tender steak,compression_only,compression_only,tension,train,1.0,Day 1,279.7424227619934,392.650525508206,-0.3312076032464386,15
+green,Sirloin tender steak,compression_only,compression_only,tension,train,2.0,Day 2,236.98457864894098,334.32093436602463,-0.46547448692303317,15
+green,Sirloin tender steak,shear_only,shear_only,compression,test,0.0,Day 0,2811.40470985243,3088.390979880091,-53.63910160836141,9
+green,Sirloin tender steak,shear_only,shear_only,compression,test,1.0,Day 1,2215.3953993055557,2368.0088700289803,-55.763496821680924,9
+green,Sirloin tender steak,shear_only,shear_only,compression,test,2.0,Day 2,2074.638850911458,2127.4849634337556,-50.295244594209656,6
+green,Sirloin tender steak,shear_only,shear_only,overall,test,-1.0,Overall,323.10520345823386,814.3606910609228,-2.617092143352308,257
+green,Sirloin tender steak,shear_only,shear_only,shear,test,0.0,Day 0,110.326130012412,125.2281394181253,-0.4540672926537863,99
+green,Sirloin tender steak,shear_only,shear_only,shear,test,1.0,Day 1,56.780681777075564,65.35446807889645,0.13650601994895184,99
+green,Sirloin tender steak,shear_only,shear_only,shear,test,2.0,Day 2,123.36279222679138,138.72660206516156,0.252835926874572,23
+green,Sirloin tender steak,shear_only,shear_only,tension,test,0.0,Day 0,639.9652667968751,767.9123360392138,-0.7292616313145222,4
+green,Sirloin tender steak,shear_only,shear_only,tension,test,1.0,Day 1,390.27316591796875,479.01082406261,-0.7317560582512326,4
+green,Sirloin tender steak,shear_only,shear_only,tension,test,2.0,Day 2,461.78272041015623,564.748677559852,-0.6429262754058154,4
+green,Sirloin tender steak,shear_only,shear_only,compression,train,0.0,Day 0,2654.8027306315103,2955.4910830116983,-31.693273251891654,36
+green,Sirloin tender steak,shear_only,shear_only,compression,train,1.0,Day 1,2024.487609263393,2217.8924418118545,-25.312244014627026,35
+green,Sirloin tender steak,shear_only,shear_only,compression,train,2.0,Day 2,1624.8694860839848,1785.2845882405518,-20.284790527757714,36
+green,Sirloin tender steak,shear_only,shear_only,overall,train,-1.0,Overall,254.82486800352683,705.5449496866904,-2.8833041866327056,1247
+green,Sirloin tender steak,shear_only,shear_only,shear,train,0.0,Day 0,93.63054607432514,110.85842253154244,0.34897295604333345,400
+green,Sirloin tender steak,shear_only,shear_only,shear,train,1.0,Day 1,57.68159134241553,68.28404048353464,0.37310378258530374,379
+green,Sirloin tender steak,shear_only,shear_only,shear,train,2.0,Day 2,44.64823260155578,55.04630093698851,-1.09427982964552,315
+green,Sirloin tender steak,shear_only,shear_only,tension,train,0.0,Day 0,542.5232527343751,641.9466612007233,-0.9617857032682737,16
+green,Sirloin tender steak,shear_only,shear_only,tension,train,1.0,Day 1,406.21521268229174,465.76309033698595,-0.8731112086454595,15
+green,Sirloin tender steak,shear_only,shear_only,tension,train,2.0,Day 2,312.6672814960937,355.80548878624927,-0.6598789024956444,15
+green,Sirloin tender steak,tension_only,tension_only,compression,test,0.0,Day 0,1965.4606519639756,2066.6847532937377,-23.467380184556436,9
+green,Sirloin tender steak,tension_only,tension_only,compression,test,1.0,Day 1,1657.3662143283418,1711.596039324208,-28.655485448004228,9
+green,Sirloin tender steak,tension_only,tension_only,compression,test,2.0,Day 2,1858.5550649007162,1890.72903118943,-39.51377312387964,6
+green,Sirloin tender steak,tension_only,tension_only,overall,test,-1.0,Overall,369.4859328665824,628.6089744309428,-1.155197734327622,257
+green,Sirloin tender steak,tension_only,tension_only,shear,test,0.0,Day 0,263.4217107671641,270.3910747949689,-5.778995625976104,99
+green,Sirloin tender steak,tension_only,tension_only,shear,test,1.0,Day 1,155.9871990942984,162.95640680293116,-4.368483533943092,99
+green,Sirloin tender steak,tension_only,tension_only,shear,test,2.0,Day 2,202.48531309728,240.1274379294707,-1.2386183400117292,23
+green,Sirloin tender steak,tension_only,tension_only,tension,test,0.0,Day 0,523.218440625,698.2591892409495,-0.4297849999002128,4
+green,Sirloin tender steak,tension_only,tension_only,tension,test,1.0,Day 1,312.504801965332,449.83083084154265,-0.5271950142206785,4
+green,Sirloin tender steak,tension_only,tension_only,tension,test,2.0,Day 2,419.89382819824215,579.8033478328432,-0.7316856873768662,4
+green,Sirloin tender steak,tension_only,tension_only,compression,train,0.0,Day 0,1814.63472797309,1946.1631455533966,-13.176126687993307,36
+green,Sirloin tender steak,tension_only,tension_only,compression,train,1.0,Day 1,1479.930142919922,1571.045499201336,-12.20244758426983,35
+green,Sirloin tender steak,tension_only,tension_only,compression,train,2.0,Day 2,1221.8216353691953,1307.2773806576129,-10.412741020642562,36
+green,Sirloin tender steak,tension_only,tension_only,overall,train,-1.0,Overall,270.1816694352596,511.5923229786901,-1.0417382902894121,1247
+green,Sirloin tender steak,tension_only,tension_only,shear,train,0.0,Day 0,211.81534963216407,234.41939084812884,-1.9110435786645357,400
+green,Sirloin tender steak,tension_only,tension_only,shear,train,1.0,Day 1,140.52034542704916,155.49454766665158,-2.2507798397304097,379
+green,Sirloin tender steak,tension_only,tension_only,shear,train,2.0,Day 2,73.07080399323137,78.07781595044912,-3.2134102038422094,315
+green,Sirloin tender steak,tension_only,tension_only,tension,train,0.0,Day 0,405.7345793640136,569.136693250563,-0.5420087884165463,16
+green,Sirloin tender steak,tension_only,tension_only,tension,train,1.0,Day 1,302.08190275390626,389.7027152490972,-0.31129464260978223,15
+green,Sirloin tender steak,tension_only,tension_only,tension,train,2.0,Day 2,252.19479096874997,325.19029427539186,-0.38652041434773055,15
+green,Sirloin tender steak,weighted_all,weighted_all,compression,test,0.0,Day 0,1823.2429632975259,1901.3590675755145,-19.709388701259332,9
+green,Sirloin tender steak,weighted_all,weighted_all,compression,test,1.0,Day 1,1491.767793867323,1527.233892071103,-22.610957447174606,9
+green,Sirloin tender steak,weighted_all,weighted_all,compression,test,2.0,Day 2,1764.7317964871725,1789.7401084352014,-35.30145631908946,6
+green,Sirloin tender steak,weighted_all,weighted_all,overall,test,-1.0,Overall,385.09966496980263,598.2728600489279,-0.9522011842126392,257
+green,Sirloin tender steak,weighted_all,weighted_all,shear,test,0.0,Day 0,290.7080055549853,299.8436618329576,-7.336243573022966,99
+green,Sirloin tender steak,weighted_all,weighted_all,shear,test,1.0,Day 1,194.53570392731754,205.71638865900718,-7.555522327619581,99
+green,Sirloin tender steak,weighted_all,weighted_all,shear,test,2.0,Day 2,236.61720034968204,285.4824579346771,-2.164137426188156,23
+green,Sirloin tender steak,weighted_all,weighted_all,tension,test,0.0,Day 0,507.3257633178711,701.4884026920082,-0.44304012707041096,4
+green,Sirloin tender steak,weighted_all,weighted_all,tension,test,1.0,Day 1,324.6828005783081,464.78663920473826,-0.630434407961882,4
+green,Sirloin tender steak,weighted_all,weighted_all,tension,test,2.0,Day 2,434.44230036430355,600.694603045187,-0.858724785575778,4
+green,Sirloin tender steak,weighted_all,weighted_all,compression,train,0.0,Day 0,1673.222338853624,1783.4400429655223,-10.904636102033384,36
+green,Sirloin tender steak,weighted_all,weighted_all,compression,train,1.0,Day 1,1317.7384716029576,1390.125858718394,-9.336777550734952,35
+green,Sirloin tender steak,weighted_all,weighted_all,compression,train,2.0,Day 2,1072.3737058146799,1140.5565767948879,-7.687366323456464,36
+green,Sirloin tender steak,weighted_all,weighted_all,overall,train,-1.0,Overall,285.1570889707082,477.68818558468524,-0.7800862125863259,1247
+green,Sirloin tender steak,weighted_all,weighted_all,shear,train,0.0,Day 0,238.76530114814415,263.0859636206956,-2.666544805804405,400
+green,Sirloin tender steak,weighted_all,weighted_all,shear,train,1.0,Day 1,177.83883117603023,196.30743590928182,-4.181204429048578,379
+green,Sirloin tender steak,weighted_all,weighted_all,shear,train,2.0,Day 2,106.95117830721618,113.38704350086547,-7.88597920914302,315
+green,Sirloin tender steak,weighted_all,weighted_all,tension,train,0.0,Day 0,391.20136642761224,573.7945848985411,-0.5673520890966526,16
+green,Sirloin tender steak,weighted_all,weighted_all,tension,train,1.0,Day 1,281.22338262247723,391.12250308609856,-0.3208668192889952,15
+green,Sirloin tender steak,weighted_all,weighted_all,tension,train,2.0,Day 2,236.95697255903113,334.04645565599037,-0.4630691548930148,15
+red,New York strip steak,compression_only,compression_only,compression,test,0.0,Day 0,872.7670315687392,912.1526353126824,-11.347653528033556,9
+red,New York strip steak,compression_only,compression_only,compression,test,1.0,Day 1,1098.8399813516403,1123.410977785694,-22.448592200818673,9
+red,New York strip steak,compression_only,compression_only,compression,test,2.0,Day 2,1709.3655916052926,1811.4497088028181,-8.156102370294175,9
+red,New York strip steak,compression_only,compression_only,overall,test,-1.0,Overall,271.11581326283937,447.31811660175066,-0.5795121183985741,302
+red,New York strip steak,compression_only,compression_only,shear,test,0.0,Day 0,94.83670430696594,99.97937167010306,-8.383115353704687,100
+red,New York strip steak,compression_only,compression_only,shear,test,1.0,Day 1,171.44795549090918,186.45638581578586,-5.050325866155232,64
+red,New York strip steak,compression_only,compression_only,shear,test,2.0,Day 2,248.8781882537986,262.184010838619,-9.077665844385779,100
+red,New York strip steak,compression_only,compression_only,tension,test,0.0,Day 0,238.2427343765259,331.24917223606644,-0.7120699822093985,4
+red,New York strip steak,compression_only,compression_only,tension,test,1.0,Day 1,337.568785265859,434.461904131222,-1.5294591963812825,3
+red,New York strip steak,compression_only,compression_only,tension,test,2.0,Day 2,359.5966159620285,486.2053101532562,-0.38752154319975385,4
+red,New York strip steak,compression_only,compression_only,compression,train,0.0,Day 0,1154.5035224077499,1238.1857398649265,-6.810494567150209,35
+red,New York strip steak,compression_only,compression_only,compression,train,1.0,Day 1,1617.8055181783038,1791.7126500428983,-4.4300190456929505,33
+red,New York strip steak,compression_only,compression_only,compression,train,2.0,Day 2,1573.6845379003882,1719.7038633592638,-5.159557893608019,32
+red,New York strip steak,compression_only,compression_only,overall,train,-1.0,Overall,404.7581326363975,558.6935714904237,-1.0875337390722541,1284
+red,New York strip steak,compression_only,compression_only,shear,train,0.0,Day 0,285.05216043379113,313.00422436756566,-4.785607339797581,400
+red,New York strip steak,compression_only,compression_only,shear,train,1.0,Day 1,362.0385831042143,383.7957977435609,-8.032003066602359,393
+red,New York strip steak,compression_only,compression_only,shear,train,2.0,Day 2,297.6606136955754,326.32465543365277,-4.93312369868298,351
+red,New York strip steak,compression_only,compression_only,tension,train,0.0,Day 0,312.64994965144564,442.2069372757771,-0.6237039031522187,14
+red,New York strip steak,compression_only,compression_only,tension,train,1.0,Day 1,448.6587164318847,684.3730573971495,-0.32629451640368967,13
+red,New York strip steak,compression_only,compression_only,tension,train,2.0,Day 2,351.21279683171787,501.7193507869241,-0.31575308775925714,13
+red,New York strip steak,shear_only,shear_only,compression,test,0.0,Day 0,1632.4439156901042,1817.142347652313,-48.00352251094715,9
+red,New York strip steak,shear_only,shear_only,compression,test,1.0,Day 1,1829.9308949652777,1975.9109173371485,-71.53943499825836,9
+red,New York strip steak,shear_only,shear_only,compression,test,2.0,Day 2,2404.9238744574654,2636.4340589848293,-18.3950946860092,9
+red,New York strip steak,shear_only,shear_only,overall,test,-1.0,Overall,266.5670762376209,662.8071607945805,-2.4678824708352267,302
+red,New York strip steak,shear_only,shear_only,shear,test,0.0,Day 0,74.45459041646757,100.66563035833406,-8.512368895153688,100
+red,New York strip steak,shear_only,shear_only,shear,test,1.0,Day 1,78.22455772999524,84.88424796165953,-0.2539448991600668,64
+red,New York strip steak,shear_only,shear_only,shear,test,2.0,Day 2,112.14391848723173,129.64752733533453,-1.464200404388492,100
+red,New York strip steak,shear_only,shear_only,tension,test,0.0,Day 0,334.61116220703127,383.0116339714598,-1.288947550101463,4
+red,New York strip steak,shear_only,shear_only,tension,test,1.0,Day 1,282.8771578125,375.5139441635093,-0.8896284220412634,3
+red,New York strip steak,shear_only,shear_only,tension,test,2.0,Day 2,461.06753759765627,523.0494091243123,-0.6057789890041947,4
+red,New York strip steak,shear_only,shear_only,compression,train,0.0,Day 0,1932.853752706473,2144.0354066002415,-22.419134712704473,35
+red,New York strip steak,shear_only,shear_only,compression,train,1.0,Day 1,2380.057993223248,2654.7209170588085,-10.92071696009872,33
+red,New York strip steak,shear_only,shear_only,compression,train,2.0,Day 2,2323.7157652282713,2558.1678353112325,-12.630138720499927,32
+red,New York strip steak,shear_only,shear_only,overall,train,-1.0,Overall,337.529931601872,717.2894608053734,-2.440923793447202,1284
+red,New York strip steak,shear_only,shear_only,shear,train,0.0,Day 0,137.01580150882174,162.2403593536225,-0.5544127746806842,400
+red,New York strip steak,shear_only,shear_only,shear,train,1.0,Day 1,208.60014446813028,220.2000979857769,-1.9731626038686092,393
+red,New York strip steak,shear_only,shear_only,shear,train,2.0,Day 2,163.6901744326338,205.70706995015888,-1.357664819964016,351
+red,New York strip steak,shear_only,shear_only,tension,train,0.0,Day 0,379.9415315708705,461.4729414555013,-0.7682685149632662,14
+red,New York strip steak,shear_only,shear_only,tension,train,1.0,Day 1,563.9340995763221,708.2801245010015,-0.42057535630869824,13
+red,New York strip steak,shear_only,shear_only,tension,train,2.0,Day 2,457.3830174278846,541.2197796705453,-0.5310875142181704,13
+red,New York strip steak,tension_only,tension_only,compression,test,0.0,Day 0,1178.857727267795,1261.3173422654054,-22.61011674043055,9
+red,New York strip steak,tension_only,tension_only,compression,test,1.0,Day 1,1332.436340657552,1383.7722774555148,-34.57694876404681,9
+red,New York strip steak,tension_only,tension_only,compression,test,2.0,Day 2,1899.550736029731,2028.8436578658757,-10.485641078142178,9
+red,New York strip steak,tension_only,tension_only,overall,test,-1.0,Overall,249.69812589779812,503.4676990231067,-1.0009360668121108,302
+red,New York strip steak,tension_only,tension_only,shear,test,0.0,Day 0,30.40191677914001,36.37816773425292,-0.24224681384673485,100
+red,New York strip steak,tension_only,tension_only,shear,test,1.0,Day 1,136.66843781862258,147.25199956407897,-2.7735198963168863,64
+red,New York strip steak,tension_only,tension_only,shear,test,2.0,Day 2,204.49863723512772,215.54946734642874,-5.811479533379685,100
+red,New York strip steak,tension_only,tension_only,tension,test,0.0,Day 0,268.7195911621094,316.0358171490089,-0.5584200237082211,4
+red,New York strip steak,tension_only,tension_only,tension,test,1.0,Day 1,282.9639357259115,397.23013651960844,-1.1145046989322918,3
+red,New York strip steak,tension_only,tension_only,tension,test,2.0,Day 2,387.65629797363283,478.0656284320205,-0.34145274945990556,4
+red,New York strip steak,tension_only,tension_only,compression,train,0.0,Day 0,1467.9084576450894,1586.8989769408288,-11.829374981899404,35
+red,New York strip steak,tension_only,tension_only,compression,train,1.0,Day 1,1860.2586527728454,2053.7767908142337,-6.134624426448115,33
+red,New York strip steak,tension_only,tension_only,compression,train,2.0,Day 2,1777.296531906128,1937.1278075173389,-6.8155358335042875,32
+red,New York strip steak,tension_only,tension_only,overall,train,-1.0,Overall,374.80976244836523,592.8106676871153,-1.3502722631758872,1284
+red,New York strip steak,tension_only,tension_only,shear,train,0.0,Day 0,213.912570701858,238.48853287809087,-2.358795490515296,400
+red,New York strip steak,tension_only,tension_only,shear,train,1.0,Day 1,306.7880239587277,322.9990168751249,-5.397142821089721,393
+red,New York strip steak,tension_only,tension_only,shear,train,2.0,Day 2,256.0134796922578,284.6239072710395,-3.513634405878107,351
+red,New York strip steak,tension_only,tension_only,tension,train,0.0,Day 0,327.86322499999994,422.93859122689133,-0.4852869336240737,14
+red,New York strip steak,tension_only,tension_only,tension,train,1.0,Day 1,475.6802709442608,676.0740238500294,-0.29432299230117254,13
+red,New York strip steak,tension_only,tension_only,tension,train,2.0,Day 2,373.04097406475364,494.9529350805761,-0.2805027118500647,13
 red,New York strip steak,weighted_all,weighted_all,compression,test,0.0,Day 0,1070.5827435438368,1139.873109619449,-18.28245903332972,9
 red,New York strip steak,weighted_all,weighted_all,compression,test,1.0,Day 1,1206.148509033203,1243.317143916527,-27.721246954182032,9
 red,New York strip steak,weighted_all,weighted_all,compression,test,2.0,Day 2,1792.1236577826608,1906.898769341669,-9.14643211688944,9

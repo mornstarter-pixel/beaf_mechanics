@@ -1,8 +1,8 @@
 {
-  "epochs": 3,
+  "epochs": 4000,
   "learning_rate": 0.001,
   "l1_penalty": 0.0,
-  "patience": 2,
+  "patience": 500,
   "random_seed": 42,
   "decay_model": "stretched",
   "grad_clip_norm": 5.0
