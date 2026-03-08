@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from tqdm.auto import tqdm
 
 try:
     import tensorflow as tf
@@ -30,7 +31,7 @@ class TrainingConfig:
 
 VARIANT_LABELS = {
     "compression_only": "compression",
-    "tension_only": "tension",
+    "unloading_only": "unloading",
     "shear_only": "shear",
     "weighted_all": "weighted_all",
 }
@@ -154,6 +155,20 @@ class TimeDependentCANN(tf.Module):
     def total_energy(self, i1: tf.Tensor, i2: tf.Tensor, time_days: tf.Tensor) -> tf.Tensor:
         return self._energy_scale() * self.time_decay.phi(time_days) * self.energy_net.energy(i1, i2)
 
+    def _total_energy_masked(
+        self,
+        i1: tf.Tensor,
+        i2: tf.Tensor,
+        time_days: tf.Tensor,
+        term_mask: tf.Tensor | None = None,
+    ) -> tf.Tensor:
+        features = self.energy_net.features(i1, i2)
+        outer = tf.nn.softplus(self.energy_net.w2)
+        if term_mask is not None:
+            outer = outer * term_mask
+        psi = tf.matmul(features, outer)
+        return self._energy_scale() * self.time_decay.phi(time_days) * psi
+
     def predict_uniaxial(self, stretch: tf.Tensor, time_days: tf.Tensor) -> tf.Tensor:
         stretch = tf.convert_to_tensor(stretch, dtype=tf.float32)
         time_days = tf.convert_to_tensor(time_days, dtype=tf.float32)
@@ -176,6 +191,53 @@ class TimeDependentCANN(tf.Module):
         with tf.GradientTape(persistent=True) as tape:
             tape.watch([i1, i2])
             psi = self.total_energy(i1, i2, time_days)
+        dpsi_di1 = tape.gradient(psi, i1)
+        dpsi_di2 = tape.gradient(psi, i2)
+        del tape
+        return 2.0 * gamma * (dpsi_di1 + dpsi_di2)
+
+    def predict_uniaxial_contributions(self, stretch: tf.Tensor, time_days: tf.Tensor) -> np.ndarray:
+        term_count = int(self.energy_net.w2.shape[0])
+        outputs = []
+        for i in range(term_count):
+            mask = np.zeros((term_count, 1), dtype=np.float32)
+            mask[i, 0] = 1.0
+            outputs.append(self._predict_uniaxial_masked(stretch, time_days, mask).numpy().reshape(-1))
+        return np.stack(outputs, axis=1)
+
+    def predict_shear_contributions(self, gamma: tf.Tensor, time_days: tf.Tensor) -> np.ndarray:
+        term_count = int(self.energy_net.w2.shape[0])
+        outputs = []
+        for i in range(term_count):
+            mask = np.zeros((term_count, 1), dtype=np.float32)
+            mask[i, 0] = 1.0
+            outputs.append(self._predict_shear_masked(gamma, time_days, mask).numpy().reshape(-1))
+        return np.stack(outputs, axis=1)
+
+    def _predict_uniaxial_masked(self, stretch: tf.Tensor, time_days: tf.Tensor, term_mask: np.ndarray) -> tf.Tensor:
+        stretch = tf.convert_to_tensor(stretch, dtype=tf.float32)
+        time_days = tf.convert_to_tensor(time_days, dtype=tf.float32)
+        mask = tf.convert_to_tensor(term_mask, dtype=tf.float32)
+        i1 = tf.square(stretch) + 2.0 / stretch
+        i2 = 2.0 * stretch + 1.0 / tf.square(stretch)
+        with tf.GradientTape(persistent=True) as tape:
+            tape.watch([i1, i2])
+            psi = self._total_energy_masked(i1, i2, time_days, mask)
+        dpsi_di1 = tape.gradient(psi, i1)
+        dpsi_di2 = tape.gradient(psi, i2)
+        del tape
+        minus = 2.0 * (dpsi_di1 / tf.square(stretch) + dpsi_di2 / tf.pow(stretch, 3.0))
+        return 2.0 * (dpsi_di1 * stretch + dpsi_di2) - minus
+
+    def _predict_shear_masked(self, gamma: tf.Tensor, time_days: tf.Tensor, term_mask: np.ndarray) -> tf.Tensor:
+        gamma = tf.convert_to_tensor(gamma, dtype=tf.float32)
+        time_days = tf.convert_to_tensor(time_days, dtype=tf.float32)
+        mask = tf.convert_to_tensor(term_mask, dtype=tf.float32)
+        i1 = tf.square(gamma) + 3.0
+        i2 = tf.square(gamma) + 3.0
+        with tf.GradientTape(persistent=True) as tape:
+            tape.watch([i1, i2])
+            psi = self._total_energy_masked(i1, i2, time_days, mask)
         dpsi_di1 = tape.gradient(psi, i1)
         dpsi_di2 = tape.gradient(psi, i2)
         del tape
@@ -208,7 +270,13 @@ def fit_cann(payload: dict, config: TrainingConfig, variant: str) -> tuple[TimeD
     best_weights = [var.numpy().copy() for var in model.trainable_variables]
     wait = 0
 
-    for epoch in range(config.epochs):
+    progress = tqdm(
+        range(config.epochs),
+        desc=f"train {variant}",
+        leave=False,
+        unit="epoch",
+    )
+    for epoch in progress:
         with tf.GradientTape() as tape:
             loss = _loss_over_blocks(model, train_blocks)
             if config.l1_penalty > 0.0:
@@ -224,8 +292,14 @@ def fit_cann(payload: dict, config: TrainingConfig, variant: str) -> tuple[TimeD
         train_loss = float(loss.numpy())
         val_loss = float(_loss_over_blocks(model, test_blocks).numpy())
         if not np.isfinite(train_loss) or not np.isfinite(val_loss):
+            progress.set_postfix_str("non-finite loss")
             break
         history.append({"epoch": epoch + 1, "train_loss": train_loss, "val_loss": val_loss})
+        progress.set_postfix(
+            train=f"{train_loss:.4g}",
+            val=f"{val_loss:.4g}",
+            best=f"{best_loss:.4g}" if np.isfinite(best_loss) else "inf",
+        )
 
         if val_loss < best_loss:
             best_loss = val_loss
@@ -234,7 +308,9 @@ def fit_cann(payload: dict, config: TrainingConfig, variant: str) -> tuple[TimeD
         else:
             wait += 1
             if wait >= config.patience:
+                progress.set_postfix_str(f"early stop @ {epoch + 1}")
                 break
+    progress.close()
 
     for var, best in zip(model.trainable_variables, best_weights):
         var.assign(best)
@@ -394,6 +470,10 @@ def _prepare_blocks(payload: dict, variant: str) -> tuple[list[dict], list[dict]
     test_uni = full_uni.loc[full_uni["file_name"].isin(list(test_files))].copy()
     train_shear = full_shear.loc[full_shear["file_name"].isin(list(train_files))].copy()
     test_shear = full_shear.loc[full_shear["file_name"].isin(list(test_files))].copy()
+    if test_uni.empty:
+        test_uni = train_uni.copy()
+    if test_shear.empty:
+        test_shear = train_shear.copy()
 
     train_blocks: list[dict] = []
     test_blocks: list[dict] = []
@@ -405,12 +485,12 @@ def _prepare_blocks(payload: dict, variant: str) -> tuple[list[dict], list[dict]
         train_blocks.append(_frame_to_block(comp_train, "deformation", scale, 1.0))
         test_blocks.append(_frame_to_block(comp_test, "deformation", scale, 1.0))
         energy_scale_init = scale / 50.0
-    elif variant == "tension_only":
-        tension_train = train_uni.loc[train_uni["loading"] == "tension"].copy()
-        tension_test = test_uni.loc[test_uni["loading"] == "tension"].copy()
-        scale = max(float(tension_train["stress_pa"].abs().max()), 1.0)
-        train_blocks.append(_frame_to_block(tension_train, "deformation", scale, 1.0))
-        test_blocks.append(_frame_to_block(tension_test, "deformation", scale, 1.0))
+    elif variant == "unloading_only":
+        unloading_train = train_uni.loc[train_uni["loading"] == "unloading"].copy()
+        unloading_test = test_uni.loc[test_uni["loading"] == "unloading"].copy()
+        scale = max(float(unloading_train["stress_pa"].abs().max()), 1.0)
+        train_blocks.append(_frame_to_block(unloading_train, "deformation", scale, 1.0))
+        test_blocks.append(_frame_to_block(unloading_test, "deformation", scale, 1.0))
         energy_scale_init = scale / 50.0
     elif variant == "shear_only":
         scale = max(float(train_shear["stress_pa"].abs().max()), 1.0)
@@ -420,26 +500,26 @@ def _prepare_blocks(payload: dict, variant: str) -> tuple[list[dict], list[dict]
     else:
         comp_train = train_uni.loc[train_uni["loading"] == "compression"].copy()
         comp_test = test_uni.loc[test_uni["loading"] == "compression"].copy()
-        tension_train = train_uni.loc[train_uni["loading"] == "tension"].copy()
-        tension_test = test_uni.loc[test_uni["loading"] == "tension"].copy()
+        unloading_train = train_uni.loc[train_uni["loading"] == "unloading"].copy()
+        unloading_test = test_uni.loc[test_uni["loading"] == "unloading"].copy()
         shear_scale = max(float(train_shear["stress_pa"].abs().max()), 1.0)
         comp_scale = max(float(comp_train["stress_pa"].abs().max()), 1.0)
-        tension_scale = max(float(tension_train["stress_pa"].abs().max()), 1.0)
+        unloading_scale = max(float(unloading_train["stress_pa"].abs().max()), 1.0)
         train_blocks.extend(
             [
                 _frame_to_block(comp_train, "deformation", comp_scale, 1.0),
-                _frame_to_block(tension_train, "deformation", tension_scale, 1.0),
+                _frame_to_block(unloading_train, "deformation", unloading_scale, 1.0),
                 _frame_to_block(train_shear, "deformation", shear_scale, 1.0),
             ]
         )
         test_blocks.extend(
             [
                 _frame_to_block(comp_test, "deformation", comp_scale, 1.0),
-                _frame_to_block(tension_test, "deformation", tension_scale, 1.0),
+                _frame_to_block(unloading_test, "deformation", unloading_scale, 1.0),
                 _frame_to_block(test_shear, "deformation", shear_scale, 1.0),
             ]
         )
-        energy_scale_init = max(comp_scale, tension_scale, shear_scale) / 50.0
+        energy_scale_init = max(comp_scale, unloading_scale, shear_scale) / 50.0
 
     return train_blocks, test_blocks, energy_scale_init
 

@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 COLOR_TO_CUT = {
-    "green": "sirloin tender steak",
+    "green": "sirloin steak",
     "red": "new york strip steak",
 }
 

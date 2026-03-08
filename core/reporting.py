@@ -14,7 +14,7 @@ TIME_LABELS = {
 }
 
 COLOR_LABELS = {
-    "green": "Sirloin tender steak",
+    "green": "Sirloin steak",
     "red": "New York strip steak",
 }
 
@@ -81,11 +81,19 @@ def _build_mechanics_summary(aggregated_df: pd.DataFrame) -> pd.DataFrame:
                 "peak_abs_stress_pa": float(np.max(np.abs(stress))),
                 "peak_stress_pa": float(stress[peak_idx]),
                 "peak_deformation": float(deformation[peak_idx]),
-                "mean_point_std_pa": float(group["stress_std_pa"].fillna(0.0).mean()),
+                "mean_point_std_pa": _mean_spread(group),
                 "mean_samples_used": float(group["n_used"].mean()),
             }
         )
     return pd.DataFrame(rows).sort_values(["color", "mode", "time_days"]).reset_index(drop=True)
+
+
+def _mean_spread(group: pd.DataFrame) -> float:
+    if "stress_std_pa" in group.columns:
+        return float(group["stress_std_pa"].fillna(0.0).mean())
+    if "stress_q25_pa" in group.columns and "stress_q75_pa" in group.columns:
+        return float(((group["stress_q75_pa"] - group["stress_q25_pa"]) / 2.0).fillna(0.0).mean())
+    return 0.0
 
 
 def _plot_results_panels(model_results: dict[str, dict[str, pd.DataFrame]], save_path: Path) -> None:
@@ -135,7 +143,7 @@ def _plot_cross_variant_panels(
         for variant, result in variants.items():
             predictions = result["predictions"]
             fig, axes = plt.subplots(1, 3, figsize=(16, 4.5))
-            for ax, loading in zip(axes, ["compression", "tension", "shear"]):
+            for ax, loading in zip(axes, ["compression", "unloading", "shear"]):
                 subset = predictions.loc[predictions["loading"] == loading]
                 for time_days, group in subset.groupby("time_days", sort=True):
                     ordered = group.sort_values("deformation")

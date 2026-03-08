@@ -1,0 +1,7 @@
+numpy==2.3.2
+pandas==2.3.2
+matplotlib==3.10.0
+scikit-learn==1.6.1
+xlrd>=2.0.1
+tensorflow[and-cuda]>=2.20,<2.21
+tqdm>=4.67,<5
