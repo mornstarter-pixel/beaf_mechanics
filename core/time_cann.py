@@ -21,12 +21,15 @@ except ImportError as exc:  # pragma: no cover
 @dataclass
 class TrainingConfig:
     epochs: int = 4000
-    learning_rate: float = 1e-3
+    learning_rate: float = 1e-2
     l1_penalty: float = 0.0
     patience: int = 500
     random_seed: int = 42
     decay_model: str = "stretched"
     grad_clip_norm: float = 5.0
+    lr_reduce_factor: float = 0.5
+    lr_reduce_patience: int = 250
+    min_learning_rate: float = 1e-4
 
 
 VARIANT_LABELS = {
@@ -269,6 +272,7 @@ def fit_cann(payload: dict, config: TrainingConfig, variant: str) -> tuple[TimeD
     best_loss = np.inf
     best_weights = [var.numpy().copy() for var in model.trainable_variables]
     wait = 0
+    lr_wait = 0
 
     progress = tqdm(
         range(config.epochs),
@@ -299,14 +303,23 @@ def fit_cann(payload: dict, config: TrainingConfig, variant: str) -> tuple[TimeD
             train=f"{train_loss:.4g}",
             val=f"{val_loss:.4g}",
             best=f"{best_loss:.4g}" if np.isfinite(best_loss) else "inf",
+            lr=f"{float(optimizer.learning_rate.numpy()):.2e}",
         )
 
         if val_loss < best_loss:
             best_loss = val_loss
             best_weights = [var.numpy().copy() for var in model.trainable_variables]
             wait = 0
+            lr_wait = 0
         else:
             wait += 1
+            lr_wait += 1
+            if lr_wait >= config.lr_reduce_patience:
+                current_lr = float(optimizer.learning_rate.numpy())
+                new_lr = max(current_lr * config.lr_reduce_factor, config.min_learning_rate)
+                if new_lr < current_lr:
+                    optimizer.learning_rate.assign(new_lr)
+                lr_wait = 0
             if wait >= config.patience:
                 progress.set_postfix_str(f"early stop @ {epoch + 1}")
                 break

@@ -29,8 +29,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1], help="Project root")
     parser.add_argument("--epochs", type=int, default=4000, help="Maximum training epochs")
     parser.add_argument("--patience", type=int, default=500, help="Early stopping patience")
-    parser.add_argument("--learning-rate", type=float, default=1e-3, help="Adam learning rate")
+    parser.add_argument("--learning-rate", type=float, default=1e-2, help="Adam learning rate")
     parser.add_argument("--l1-penalty", type=float, default=0.0, help="L1 penalty coefficient")
+    parser.add_argument("--lr-reduce-factor", type=float, default=0.5, help="Factor applied when reducing learning rate")
+    parser.add_argument("--lr-reduce-patience", type=int, default=250, help="Epochs without validation improvement before lowering learning rate")
+    parser.add_argument("--min-learning-rate", type=float, default=1e-4, help="Lower bound for automatic learning-rate decay")
     parser.add_argument(
         "--decay-model",
         choices=["stretched", "double_exp"],
@@ -85,6 +88,9 @@ def execute_analysis(args: argparse.Namespace) -> None:
         l1_penalty=args.l1_penalty,
         random_seed=args.seed,
         decay_model=args.decay_model,
+        lr_reduce_factor=args.lr_reduce_factor,
+        lr_reduce_patience=args.lr_reduce_patience,
+        min_learning_rate=args.min_learning_rate,
     )
 
     model_results: dict[str, dict[str, dict[str, object]]] = {}

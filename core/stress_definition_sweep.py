@@ -41,8 +41,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1], help="Project root")
     parser.add_argument("--epochs", type=int, default=1000, help="Maximum training epochs per variant")
     parser.add_argument("--patience", type=int, default=200, help="Early stopping patience")
-    parser.add_argument("--learning-rate", type=float, default=1e-3, help="Adam learning rate")
+    parser.add_argument("--learning-rate", type=float, default=1e-2, help="Adam learning rate")
     parser.add_argument("--l1-penalty", type=float, default=0.0, help="L1 penalty coefficient")
+    parser.add_argument("--lr-reduce-factor", type=float, default=0.5)
+    parser.add_argument("--lr-reduce-patience", type=int, default=150)
+    parser.add_argument("--min-learning-rate", type=float, default=1e-4)
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
     parser.add_argument("--test-sample-num", type=int, default=5, help="Held-out sample number within each group")
     parser.add_argument(
@@ -77,6 +80,9 @@ def main() -> None:
         l1_penalty=args.l1_penalty,
         random_seed=args.seed,
         decay_model=args.decay_model,
+        lr_reduce_factor=args.lr_reduce_factor,
+        lr_reduce_patience=args.lr_reduce_patience,
+        min_learning_rate=args.min_learning_rate,
     )
 
     all_metrics: list[pd.DataFrame] = []

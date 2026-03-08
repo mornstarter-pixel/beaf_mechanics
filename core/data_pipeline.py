@@ -93,6 +93,72 @@ def _shear_frame(meta: SampleMeta, data: pd.DataFrame) -> pd.DataFrame:
     return _attach_meta(meta, out)
 
 
+def _collapse_duplicate_deformation(frame: pd.DataFrame, decimals: int = 6) -> pd.DataFrame:
+    work = frame.copy()
+    work["_deformation_key"] = work["deformation"].round(decimals)
+    collapsed = (
+        work.groupby("_deformation_key", sort=True, as_index=False)
+        .agg(
+            {
+                "file_name": "first",
+                "color": "first",
+                "cut_name": "first",
+                "freshness_index": "first",
+                "time_hours": "first",
+                "time_days": "first",
+                "sample_num": "first",
+                "mode": "first",
+                "loading": "first",
+                "deformation": "median",
+                "stress_pa": "median",
+            }
+        )
+        .drop(columns="_deformation_key")
+    )
+    collapsed["point_index"] = np.arange(len(collapsed), dtype=int)
+    return collapsed[frame.columns]
+
+
+def _clean_single_curve(frame: pd.DataFrame, max_passes: int = 2, z_threshold: float = 3.5) -> pd.DataFrame:
+    ordered = _collapse_duplicate_deformation(frame).sort_values("deformation").reset_index(drop=True).copy()
+    if len(ordered) < 5:
+        ordered["point_index"] = np.arange(len(ordered), dtype=int)
+        return ordered
+
+    keep_mask = np.ones(len(ordered), dtype=bool)
+    for _ in range(max_passes):
+        work = ordered.loc[keep_mask].reset_index(drop=True)
+        if len(work) < 5:
+            break
+
+        x = work["deformation"].to_numpy(dtype=float)
+        y = work["stress_pa"].to_numpy(dtype=float)
+        prev_x, next_x = x[:-2], x[2:]
+        prev_y, next_y = y[:-2], y[2:]
+        mid_x = x[1:-1]
+        span = np.maximum(next_x - prev_x, 1e-8)
+        expected = prev_y + (next_y - prev_y) * (mid_x - prev_x) / span
+        residual = y[1:-1] - expected
+        z = np.abs(modified_z_scores(residual))
+
+        left_slope = y[1:-1] - prev_y
+        right_slope = next_y - y[1:-1]
+        slope_flip = np.sign(left_slope) != np.sign(right_slope)
+
+        to_drop_inner = (z > z_threshold) & slope_flip
+        if not np.any(to_drop_inner):
+            break
+
+        work_keep = np.ones(len(work), dtype=bool)
+        work_keep[1:-1] = ~to_drop_inner
+        surviving_index = ordered.index[keep_mask]
+        keep_mask[surviving_index] = work_keep
+
+    cleaned = ordered.loc[keep_mask].reset_index(drop=True).copy()
+    cleaned["point_index"] = np.arange(len(cleaned), dtype=int)
+    return cleaned
+
+
 def _attach_meta(meta: SampleMeta, frame: pd.DataFrame) -> pd.DataFrame:
     meta_dict = asdict(meta)
     for key, value in meta_dict.items():
@@ -124,7 +190,7 @@ def load_workbook(
     tension = _read_numeric_sheet(file_path, "Axial - 2")
     shear = _read_numeric_sheet(file_path, "Peak hold - 3")
     reference_gap = _estimate_reference_gap(compression)
-    frames = [
+    compression_clean = _clean_single_curve(
         _uniaxial_frame(
             meta,
             compression,
@@ -132,7 +198,9 @@ def load_workbook(
             reference_gap=reference_gap,
             stress_column=axial_stress_column,
             stress_sign=compression_sign,
-        ),
+        )
+    )
+    unloading_clean = _clean_single_curve(
         _uniaxial_frame(
             meta,
             tension,
@@ -140,8 +208,13 @@ def load_workbook(
             reference_gap=reference_gap,
             stress_column=axial_stress_column,
             stress_sign=1.0,
-        ),
-        _shear_frame(meta, shear),
+        )
+    )
+    shear_clean = _clean_single_curve(_shear_frame(meta, shear))
+    frames = [
+        compression_clean,
+        unloading_clean,
+        shear_clean,
     ]
     return pd.concat(frames, ignore_index=True)
 
@@ -181,6 +254,49 @@ def robust_z_scores(values: np.ndarray) -> np.ndarray:
     if np.isclose(mad, 0.0):
         return np.zeros_like(values, dtype=float)
     return (values - median) / (1.4826 * mad)
+
+
+def weighted_huber_mean(
+    values: np.ndarray,
+    weights: np.ndarray,
+    delta: float = 1.5,
+    max_iter: int = 25,
+    tol: float = 1e-6,
+) -> float:
+    values = np.asarray(values, dtype=float)
+    weights = np.asarray(weights, dtype=float)
+    if values.size == 0:
+        return float("nan")
+
+    location = float(np.median(values))
+    scale = float(np.median(np.abs(values - location)))
+    if np.isclose(scale, 0.0):
+        denom = np.sum(weights)
+        return float(np.sum(weights * values) / denom) if denom > 0.0 else float(np.mean(values))
+
+    for _ in range(max_iter):
+        residual = values - location
+        scaled = np.abs(residual) / max(delta * scale, 1e-8)
+        huber_weights = np.ones_like(scaled)
+        np.divide(1.0, scaled, out=huber_weights, where=scaled > 1.0)
+        total_weights = weights * huber_weights
+        denom = np.sum(total_weights)
+        if denom <= 0.0:
+            break
+        updated = float(np.sum(total_weights * values) / denom)
+        if abs(updated - location) < tol:
+            location = updated
+            break
+        location = updated
+
+    return location
+
+
+def weighted_huber_curve(curve_matrix: np.ndarray, curve_weights: np.ndarray) -> np.ndarray:
+    return np.asarray(
+        [weighted_huber_mean(curve_matrix[:, idx], curve_weights) for idx in range(curve_matrix.shape[1])],
+        dtype=float,
+    )
 
 
 def aggregate_group_curves(
@@ -400,7 +516,7 @@ def preprocess_robust_curves(
 
         kept_matrix = sample_matrix[~is_curve_outlier]
         kept_weights = curve_weight[~is_curve_outlier]
-        rep_curve = np.median(kept_matrix, axis=0)
+        rep_curve = weighted_huber_curve(kept_matrix, kept_weights)
         q25 = np.quantile(kept_matrix, 0.25, axis=0)
         q75 = np.quantile(kept_matrix, 0.75, axis=0)
 

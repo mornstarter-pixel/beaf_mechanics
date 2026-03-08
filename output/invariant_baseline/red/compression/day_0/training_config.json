@@ -1,0 +1,12 @@
+{
+  "epochs": 800,
+  "patience": 200,
+  "learning_rate": 0.003,
+  "lr_reduce_factor": 0.5,
+  "lr_reduce_patience": 250,
+  "min_learning_rate": 0.0001,
+  "l1_penalty": 0.0001,
+  "seed": 42,
+  "grad_clip_norm": 5.0,
+  "test_sample_num": 5
+}
