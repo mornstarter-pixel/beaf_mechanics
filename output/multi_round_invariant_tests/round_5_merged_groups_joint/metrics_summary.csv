@@ -1,0 +1,13 @@
+loading,time_days,r2,n_points,color,round,group_id,model_type
+compression,0.0,0.35535641161719655,80,green,round_5,green_joint_merged_03,joint
+compression,1.0,0.8734333898100172,80,green,round_5,green_joint_merged_03,joint
+compression,2.0,0.8642157060006154,80,green,round_5,green_joint_merged_03,joint
+shear,0.0,0.8453578377993353,100,green,round_5,green_joint_merged_03,joint
+shear,1.0,0.8356491512745584,100,green,round_5,green_joint_merged_03,joint
+shear,2.0,0.36677024463057384,100,green,round_5,green_joint_merged_03,joint
+compression,0.0,0.9149902970313343,80,red,round_5,red_joint_merged_03,joint
+compression,1.0,0.8877587509267084,80,red,round_5,red_joint_merged_03,joint
+compression,2.0,0.8106569029459407,80,red,round_5,red_joint_merged_03,joint
+shear,0.0,0.8546333473991535,100,red,round_5,red_joint_merged_03,joint
+shear,1.0,0.885714463331799,100,red,round_5,red_joint_merged_03,joint
+shear,2.0,0.34100767922176145,100,red,round_5,red_joint_merged_03,joint

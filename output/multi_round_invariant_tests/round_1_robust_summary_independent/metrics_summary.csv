@@ -1,0 +1,13 @@
+loading,time_days,r2,n_points,color,round,group_id,model_type
+compression,0.0,0.9166532283286069,80,green,round_1,robust_summary,independent
+compression,1.0,0.9515018140903562,80,green,round_1,robust_summary,independent
+compression,2.0,0.9727114338979972,80,green,round_1,robust_summary,independent
+shear,0.0,0.9063751117732775,100,green,round_1,robust_summary,independent
+shear,1.0,0.902378190607223,100,green,round_1,robust_summary,independent
+shear,2.0,0.5345538645991468,100,green,round_1,robust_summary,independent
+compression,0.0,0.9694063270273322,80,red,round_1,robust_summary,independent
+compression,1.0,0.960396507698217,80,red,round_1,robust_summary,independent
+compression,2.0,0.9734366341887369,80,red,round_1,robust_summary,independent
+shear,0.0,0.8753392700779515,100,red,round_1,robust_summary,independent
+shear,1.0,0.7998976293011247,100,red,round_1,robust_summary,independent
+shear,2.0,0.6612120154377945,100,red,round_1,robust_summary,independent

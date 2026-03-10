@@ -1,0 +1,3 @@
+color,group_id,files_by_day,score,source_groups,mean_r2
+green,green_joint_merged_03,"{0.0: ['green1-2.xls', 'green1-4.xls', 'green1-5.xls'], 1.0: ['green2-1.xls', 'green2-4.xls', 'green2-5.xls'], 2.0: ['green3-1.xls', 'green3-2.xls', 'green3-4.xls']}",0.8227288063202519,"['green_triplet_02', 'green_triplet_01', 'green_triplet_03']",0.46031829918837236
+red,red_joint_merged_03,"{0.0: ['red1-1.xls', 'red1-3.xls', 'red1-4.xls'], 1.0: ['red2-1.xls', 'red2-2.xls', 'red2-4.xls'], 2.0: ['red3-2.xls', 'red3-4.xls', 'red3-5.xls']}",0.7244163974321487,"['red_triplet_03', 'red_triplet_02', 'red_triplet_01']",0.6985258977284143

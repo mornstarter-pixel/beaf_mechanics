@@ -1,0 +1,20 @@
+round_5 | Sirloin steak | green_joint_merged_03
+
+Data source: selected sample-level curves (not averaged for training).
+Selection rule: similar curve shape, similar peak stress, and non-increasing/stable peak trend across days.
+Model: invariant CANN, joint compression + shear model.
+Covariates: time + mass.
+Selection score = 0.8227.
+
+Selected files by day:
+- Day 0: green1-2.xls, green1-4.xls, green1-5.xls
+- Day 1: green2-1.xls, green2-4.xls, green2-5.xls
+- Day 2: green3-1.xls, green3-2.xls, green3-4.xls
+
+R2 summary:
+- compression | Day 0: 0.3554
+- compression | Day 1: 0.8734
+- compression | Day 2: 0.8642
+- shear | Day 0: 0.8454
+- shear | Day 1: 0.8356
+- shear | Day 2: 0.3668

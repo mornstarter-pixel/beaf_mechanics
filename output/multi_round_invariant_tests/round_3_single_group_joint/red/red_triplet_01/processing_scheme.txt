@@ -1,0 +1,20 @@
+round_3 | New York strip steak | red_triplet_01
+
+Data source: selected sample-level curves (not averaged for training).
+Selection rule: similar curve shape, similar peak stress, and non-increasing/stable peak trend across days.
+Model: invariant CANN, joint compression + shear model.
+Covariates: time + mass.
+Selection score = 0.8895.
+
+Selected files by day:
+- Day 0: red1-1.xls
+- Day 1: red2-2.xls
+- Day 2: red3-2.xls
+
+R2 summary:
+- compression | Day 0: -0.0160
+- compression | Day 1: 0.5057
+- compression | Day 2: 0.8752
+- shear | Day 0: 0.8387
+- shear | Day 1: 0.5114
+- shear | Day 2: 0.7988

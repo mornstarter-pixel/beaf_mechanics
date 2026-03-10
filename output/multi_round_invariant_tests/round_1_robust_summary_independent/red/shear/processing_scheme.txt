@@ -1,0 +1,11 @@
+Round 1 | New York strip steak | shear
+
+Data source: robust summary curves after single-curve cleaning, common-grid interpolation, and curve-level outlier handling.
+Model: invariant CANN, independent loading model.
+Covariates: time only. Mass is not used because the fitting target is the robust summary curve.
+Training uses 100% of the three-day robust summary data.
+
+R2 summary:
+- shear | Day 0: 0.8753
+- shear | Day 1: 0.7999
+- shear | Day 2: 0.6612

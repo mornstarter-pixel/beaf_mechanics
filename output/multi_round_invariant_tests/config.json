@@ -1,0 +1,10 @@
+{
+  "root": "C:\\Code\\ME233\\beef_mechanics",
+  "axial_stress_column": "stress",
+  "compression_sign": -1.0,
+  "ridge_alpha": 0.0001,
+  "max_triplets_per_color": 5,
+  "good_r2_threshold": 0.85,
+  "merge_group_count": 3,
+  "mass_csv": "quality_mass_g.csv"
+}

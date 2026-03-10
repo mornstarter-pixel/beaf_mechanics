@@ -1,0 +1,17 @@
+round_2 | Sirloin steak | green_triplet_02 | shear
+
+Data source: selected sample-level curves (not averaged for training).
+Selection rule: similar curve shape, similar peak stress, and non-increasing/stable peak trend across days.
+Model: invariant CANN, independent loading model.
+Covariates: time + mass.
+Selection score = 0.8325.
+
+Selected files by day:
+- Day 0: green1-4.xls
+- Day 1: green2-1.xls
+- Day 2: green3-2.xls
+
+R2 summary:
+- shear | Day 0: 0.8732
+- shear | Day 1: 0.9336
+- shear | Day 2: 0.3746
